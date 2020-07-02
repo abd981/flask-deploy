@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block head %}
+<title>Home</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+    @media screen and (min-width:600px){
+        body{
+            background-color: gray;
+        }
+        #b{
+            margin-top: 50px;
+            width: 600px;
+            height: 500px;
+            background-color: white;
+            margin-left: 370px;
+        }
+        #b h2{
+            text-align: center;
+        }
+        #b ul{
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+        #b ul li{
+            font-size: 10pt;
+        }
+    }
+    @media screen and (max-width:599px){
+        body{
+            background-color: gray;
+        }
+        #b{
+            margin: auto;
+            width: 500px;
+            height: 500px;
+            background-color: white;
+        }
+        #b h2{
+            text-align: center;
+        }
+        #b ul{
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+        #b ul li{
+            font-size: 15pt;
+        }
+    }
+</style>
+{% endblock %}
+{% block body %}
+    <nav class="navbar navbar-dark bg-dark">
+    <!-- Navbar content -->
+    <a href="{{ url_for('home') }}">Profile</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </nav>
+  <div id="b">
+    <h2>Profile</h2>
+    <ul>
+        <li>Username: {{ account['name'] }}</li>
+        <li>Email: {{ account['email'] }}</li>
+        <li>ID: {{ account['id'] }}</li>
+    </ul>
+  </div>
+{% endblock %}
